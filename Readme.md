@@ -14,7 +14,7 @@ cd <to target project directory>
 ```
 
 ```shell
-docker run -it --mount type=bind,source="$(pwd)",destination=/target docker-br
+docker run -it --mount type=bind,source="$(pwd)",destination=/target docker-arm-cm
 ```
 
 Then your work directory should be bind in `/target`.
