@@ -1,5 +1,5 @@
 # Docker Buildroot
-A Docker container to build ARM cortex-m tartget with gcc through a bind working directory.
+A Docker container to build ARM cortex-m target with gcc through a bind working directory.
 
 # Build images
 
