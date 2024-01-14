@@ -4,7 +4,7 @@ A Docker container to build ARM cortex-m target with gcc through a bind working 
 # Build images
 
 ```shell
-docker run -t docker-arm-cm .
+docker build -t docker-arm-cm .
 ```
 
 # Usage
