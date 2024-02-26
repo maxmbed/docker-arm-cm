@@ -1,34 +1,17 @@
 # Docker Arm gcc-none-eabi
-# Use for build arm cortex-m series
+# Use to build arm cortex-m target
+FROM alpine:3.19
 
-FROM debian:12
-RUN apt-get update -y
-
-RUN apt-get install -y \
-        which \
-        sed \ 
+RUN apk add  --no-cache \
+        gcompat \
         make \
         cmake \
         bash \
-        patch \
-        gzip \
-        bzip2 \
-        perl \
-        tar \
-        cpio \
-        unzip \
-        rsync \
-        file \
-        bc \
-        findutils \
         wget \ 
         python3 \
-# Interface dependecies \
-        libncurses5 libncurses-dev \
 # Source fetching tools \
         git \
 #       mercurial \
-        openssh-client \
 # Compilation tools \
         bear
 
@@ -40,3 +23,5 @@ RUN mkdir -p $toolchain_path
 RUN wget $toolchain_url -qO - | tar xvfj - --strip-components=1 -C $toolchain_path
 ENV PATH=${PATH}:$toolchain_path/bin
 
+COPY ./entry_point.sh /
+ENTRYPOINT [ "sh", "./entry_point.sh" ]
